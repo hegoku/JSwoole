@@ -1,0 +1,13 @@
+{
+    "name": "JSwoole",
+    "description": "",
+    "require": {
+        "php": ">=7.1.0",
+        "hegoku/jswoole-core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/" 
+        }
+    }
+}
