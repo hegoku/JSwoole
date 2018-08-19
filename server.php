@@ -26,7 +26,7 @@ $server->on('WorkerStart', function(swoole_server $server, int $worker_id){
     }
 
     $app_config=require_once('config/app.php');
-    \JSwoole\JSwoole::initWorderContent($worker_id, $app_config);
+    \JSwoole\JSwoole::initWorderContext($worker_id, $app_config);
 });
 $server->on('WorkerStop', function(swoole_server $server, int $worker_id){
     
@@ -35,12 +35,12 @@ $server->on('request', function($swooleRequest, $swooleResponse){
     if ($swooleRequest->server['request_uri']=='/favicon.ico') {
         return $swooleResponse->end('');
     }
-    \JSwoole\JSwoole::addRequestContent();
+    \JSwoole\JSwoole::addRequestContext();
     try {
         // \Swoole\Runtime::enableCoroutime();
     
         $route=new \JSwoole\Route\Route();
-        $route->loadRouter(\JSwoole\JSwoole::getWorkerContent()->getConfig('route'));
+        $route->loadRouter(\JSwoole\JSwoole::getWorkerContext()->getConfig('route'));
         $controller='';
         $action='';
         try {
@@ -51,7 +51,7 @@ $server->on('request', function($swooleRequest, $swooleResponse){
 
         \JSwoole\JSwoole::app()->loadComponents();
     
-        $controller='\\'.\JSwoole\JSwoole::getWorkerContent()->getConfig('controller_namespace').$controller;
+        $controller='\\'.\JSwoole\JSwoole::getWorkerContext()->getConfig('controller_namespace').$controller;
         $request=\JSwoole\Request::createFromSwoole($swooleRequest);
         $controllerInstance=new $controller($request);
         $response=$controllerInstance->$action();
@@ -65,7 +65,7 @@ $server->on('request', function($swooleRequest, $swooleResponse){
     } catch (\Exception $e) {
         var_dump($e->getMessage());
     } finally {
-        \JSwoole\JSwoole::removeRequestContent();
+        \JSwoole\JSwoole::removeRequestContext();
     }
 });
 $server->start();

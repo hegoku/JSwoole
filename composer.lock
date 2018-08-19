@@ -79,12 +79,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/hegoku/JSwoole-core.git",
-                "reference": "4d78273facae3ee50eb9526d66b84fbad9d5f14e"
+                "reference": "a0c378451bb130db0fa950c0b8af01aadba225c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/4d78273facae3ee50eb9526d66b84fbad9d5f14e",
-                "reference": "4d78273facae3ee50eb9526d66b84fbad9d5f14e",
+                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/a0c378451bb130db0fa950c0b8af01aadba225c1",
+                "reference": "a0c378451bb130db0fa950c0b8af01aadba225c1",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 }
             ],
             "description": "A Swoole Framework core",
-            "time": "2018-08-18 10:58:35"
+            "time": "2018-08-18 14:59:44"
         },
         {
             "name": "illuminate/container",
