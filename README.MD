@@ -4,6 +4,13 @@ php>=7.2
 
 swoole>=4.0.0
 
+### 安装
+
+```sh
+$ composer install
+$ cp env.example env
+```
+
 ### 运行
 
 ```sh

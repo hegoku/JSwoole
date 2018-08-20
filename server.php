@@ -1,14 +1,32 @@
 <?php
-$server=new swoole_http_server('127.0.0.1', 2222, SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
+$cli_options=getopt('Dph:');
+$port=9501;
+$host='127.0.0.1';
+if (isset($cli_options['p'])) {
+    $port=$cli_options['p'];
+}
+if (isset($cli_options['h'])) {
+    $port=$cli_options['h'];
+}
+
+$server=new swoole_http_server($host, $port, SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
 
 $server->set([
     'reactor_num' => 1,
-    'worker_num' => 1,
+    'worker_num' => 2,
     'max_request' => 1000,
-    'daemonize' => 0,
+    'daemonize' => isset($cli_options['D'])?1:0,
     'dispatch_mode' => 3,
     'reload_async' => true,
+    'pid_file' => __DIR__.'/runtime/server.pid',
+    'log_file'=>__DIR__.'/runtime/logs/server.log'
 ]);
+
+$server->on("start", function ($server) use($host, $port, $cli_options){
+    if (!isset($cli_options['D'])) {
+        echo "Swoole http server is started at http://$host:$port\n";
+    }
+});
 
 $server->on('WorkerStart', function(swoole_server $server, int $worker_id){
     if(function_exists('apc_clear_cache')){
