@@ -1,3 +1,9 @@
+### 环境
+
+php>=7.2
+
+swoole>=4.0.0
+
 ### 运行
 
 ```sh
@@ -70,7 +76,7 @@ class IndexController extends JSwoole\Controller
 
 ### Model
 
-继承 `JSwoole\Model` 类, `JSwoole\Model` 类继承Laravel的Model类, 详见(https://laravel.com/docs/5.6/eloquent)(https://laravel.com/docs/5.6/eloquent)
+继承 `JSwoole\Model` 类, `JSwoole\Model` 类继承Laravel的Model类, 详见[https://laravel.com/docs/5.6/eloquent](https://laravel.com/docs/5.6/eloquent)
 
 ```php
 class UserModel extends \JSwoole\Database\Model
