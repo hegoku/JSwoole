@@ -4,7 +4,7 @@ return [
     'route'=>require(__DIR__ . '/route.php'),
     'components'=>[
         'db'=>[
-            'class'=>'\JSwoole\Database\DB',
+            'class'=>'\JSwoole\Database\SwooleCoroutineMysqlDB',
             'params'=>[
                 'connection_config'=>[
                     'default'=>[
