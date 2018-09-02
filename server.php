@@ -18,14 +18,14 @@ $server->on('WorkerStart', function(swoole_server $server, int $worker_id){
         opcache_reset();
     }
 
-    require_once('vendor/autoload.php');
+    require_once(__DIR__.'/vendor/autoload.php');
 
     $env_file = parse_ini_file(__DIR__.'/env');
     foreach ($env_file as $k=>$v) {
         putenv($k.'='.$v);
     }
 
-    $app_config=require_once('config/app.php');
+    $app_config=require_once(__DIR__.'/config/app.php');
     \JSwoole\JSwoole::initWorderContext($worker_id, $app_config);
 });
 $server->on('WorkerStop', function(swoole_server $server, int $worker_id){
