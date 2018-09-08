@@ -9,6 +9,7 @@ if (isset($cli_options['h'])) {
     $port=$cli_options['h'];
 }
 
+\Swoole\Runtime::enableCoroutine();
 $server=new swoole_http_server($host, $port, SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
 
 $server->set([
@@ -55,8 +56,6 @@ $server->on('request', function($swooleRequest, $swooleResponse){
     }
     \JSwoole\JSwoole::addRequestContext();
     try {
-        // \Swoole\Runtime::enableCoroutime();
-    
         $route=new \JSwoole\Route\Route();
         $route->loadRouter(\JSwoole\JSwoole::getWorkerContext()->getConfig('route'));
         $controller='';
