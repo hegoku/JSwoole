@@ -1,5 +1,5 @@
 <?php
-$cli_options=getopt('Dph:');
+$cli_options=getopt('Dp:h:');
 $port=9501;
 $host='127.0.0.1';
 if (isset($cli_options['p'])) {
