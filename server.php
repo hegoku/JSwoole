@@ -20,7 +20,7 @@ $server->set([
     'dispatch_mode' => 3,
     'reload_async' => true,
     'pid_file' => __DIR__.'/runtime/server.pid',
-    'log_file'=>__DIR__.'/runtime/logs/server.log'
+    'log_file'=>__DIR__.'/runtime/server.log'
 ]);
 
 $server->on("start", function ($server) use($host, $port, $cli_options){
