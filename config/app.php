@@ -3,6 +3,20 @@ return [
     'controller_namespace'=>"App\\Controllers\\",
     'route'=>require(__DIR__ . '/route.php'),
     'components'=>[
+        'log'=>[
+            'class'=>'\JSwoole\Log\Log',
+            'params'=>[
+                'targets'=>[
+                    [
+                        'target'=>'\JSwoole\Log\FileTarget',
+                        'category'=>'app',
+                        'params'=>[
+                            'file'=>\JSwoole\JSwoole::$base_path.'/runtime/app.log'
+                        ]
+                    ]
+                ]
+            ]
+        ],
         'db'=>[
             'class'=>'\JSwoole\Database\PDOMysqlDB',
             'params'=>[

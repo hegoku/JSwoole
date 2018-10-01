@@ -1,7 +1,7 @@
 <?php
-$cli_options=getopt('Dph:');
+$cli_options=getopt('Dp:h:');
 $port=9501;
-$host='127.0.0.1';
+$host='0.0.0.0';
 if (isset($cli_options['p'])) {
     $port=$cli_options['p'];
 }
@@ -20,7 +20,7 @@ $server->set([
     'dispatch_mode' => 3,
     'reload_async' => true,
     'pid_file' => __DIR__.'/runtime/server.pid',
-    'log_file'=>__DIR__.'/runtime/logs/server.log'
+    'log_file'=>__DIR__.'/runtime/server.log'
 ]);
 
 $server->on("start", function ($server) use($host, $port, $cli_options){
@@ -37,20 +37,21 @@ $server->on('WorkerStart', function(swoole_server $server, int $worker_id){
         opcache_reset();
     }
 
-    require_once(__DIR__.'/vendor/autoload.php');
+    require_once('vendor/autoload.php');
 
     $env_file = parse_ini_file(__DIR__.'/env');
     foreach ($env_file as $k=>$v) {
         putenv($k.'='.$v);
     }
 
-    $app_config=require_once(__DIR__.'/config/app.php');
+    \JSwoole\JSwoole::$base_path=__DIR__;
+    $app_config=require_once('config/app.php');
     \JSwoole\JSwoole::initWorderContext($worker_id, $app_config);
 });
 $server->on('WorkerStop', function(swoole_server $server, int $worker_id){
     
 });
-$server->on('request', function($swooleRequest, $swooleResponse){
+$server->on('request', function($swooleRequest, $swooleResponse) use($cli_options){
     if ($swooleRequest->server['request_uri']=='/favicon.ico') {
         return $swooleResponse->end('');
     }
@@ -80,8 +81,13 @@ $server->on('request', function($swooleRequest, $swooleResponse){
         $swooleResponse->end($response->getBody());
         
     } catch (\Exception $e) {
-        var_dump($e->getMessage());
+        if (!isset($cli_options['D'])) {
+            var_dump($e->getMessage());
+        }
+        \JSwoole\JSwoole::app()->log->log($e->getMessage(), \JSwoole\Log\Log::LEVEL_ERROR, 'app');
+        $swooleResponse->end(json_encode(['code'=>500, 'msg'=>'内部服务器错误']));
     } finally {
+        \JSwoole\JSwoole::app()->log->flush();
         \JSwoole\JSwoole::removeRequestContext();
     }
 });

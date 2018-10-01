@@ -3,7 +3,7 @@
     "description": "",
     "require": {
         "php": ">=7.1.0",
-        "hegoku/jswoole-core": "dev-master"
+        "hegoku/jswoole-core": "0.0.2"
     },
     "autoload": {
         "psr-4": {
