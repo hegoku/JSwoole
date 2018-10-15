@@ -56,6 +56,8 @@ $server->on('request', function($swooleRequest, $swooleResponse){
     }
     \JSwoole\JSwoole::addRequestContext();
     try {
+        \JSwoole\JSwoole::app()->loadComponents();
+
         $route=new \JSwoole\Route\Route();
         $route->loadRouter(\JSwoole\JSwoole::getWorkerContext()->getConfig('route'));
         $controller='';
@@ -65,8 +67,6 @@ $server->on('request', function($swooleRequest, $swooleResponse){
         } catch (\JSwoole\Route\RouteException $e) {
             return $swooleResponse->end(json_encode(['code'=>404, 'msg'=>'请求不存在']));
         }
-
-        \JSwoole\JSwoole::app()->loadComponents();
     
         $controller='\\'.\JSwoole\JSwoole::getWorkerContext()->getConfig('controller_namespace').$controller;
         $request=\JSwoole\Request::createFromSwoole($swooleRequest);
