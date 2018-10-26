@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "09c27de5381d5866c6188bc64c45b888",
+    "content-hash": "9a1f6bd219ac19826bcb95eae23f98bd",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -75,16 +75,16 @@
         },
         {
             "name": "hegoku/jswoole-core",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hegoku/JSwoole-core.git",
-                "reference": "ecdb4dec225923d39edaddee660cefd0b0aa7f10"
+                "reference": "2584758269d8c87aba70f010277811b20a0eb9bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/ecdb4dec225923d39edaddee660cefd0b0aa7f10",
-                "reference": "ecdb4dec225923d39edaddee660cefd0b0aa7f10",
+                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/2584758269d8c87aba70f010277811b20a0eb9bd",
+                "reference": "2584758269d8c87aba70f010277811b20a0eb9bd",
                 "shasum": ""
             },
             "require": {
@@ -108,7 +108,7 @@
                 }
             ],
             "description": "A Swoole Framework core",
-            "time": "2018-10-26T02:44:23+00:00"
+            "time": "2018-10-26T08:50:41+00:00"
         },
         {
             "name": "illuminate/container",
