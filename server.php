@@ -13,8 +13,8 @@ if (isset($cli_options['h'])) {
 $server=new swoole_http_server($host, $port, SWOOLE_PROCESS, SWOOLE_SOCK_TCP);
 
 $server->set([
-    'reactor_num' => 1,
-    'worker_num' => 2,
+    // 'reactor_num' => 1,
+    // 'worker_num' => 2,
     'max_request' => 1000,
     'daemonize' => isset($cli_options['D'])?1:0,
     'dispatch_mode' => 3,

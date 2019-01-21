@@ -35,6 +35,10 @@ return [
                         'charset'         => env('DB_CHARSET', 'utf8'),
                         // 数据库表前缀
                         'prefix'          => env('DB_PREFIX', ''),
+                        //连接池大小
+                        'pool_max' =>env('DB_POOL_MAX', 1),
+                        //连接池更新时间(秒)
+                        'wait_timeout'=>60*2
                     ]
                 ]
             ]
