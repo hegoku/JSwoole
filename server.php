@@ -1,4 +1,6 @@
 <?php
+ini_set('memory_limit','-1');
+
 $cli_options=getopt('Dp:h:');
 $port=9501;
 $host='0.0.0.0';
