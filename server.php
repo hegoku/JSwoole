@@ -68,6 +68,7 @@ $server->on('request', function($swooleRequest, $swooleResponse) use($cli_option
         try {
             list($controller, $action)=$route->parseUri($swooleRequest->server['request_method'], $swooleRequest->server['request_uri']);
         } catch (\JSwoole\Route\RouteException $e) {
+            $swooleResponse->status(404);
             return $swooleResponse->end(json_encode(['code'=>404, 'msg'=>'请求不存在']));
         }
     
@@ -87,6 +88,7 @@ $server->on('request', function($swooleRequest, $swooleResponse) use($cli_option
             var_dump($e->getMessage());
         }
         \JSwoole\JSwoole::app()->log->log($e->getMessage(), \JSwoole\Log\Log::LEVEL_ERROR, 'app');
+        $swooleResponse->status(500);
         $swooleResponse->end(json_encode(['code'=>500, 'msg'=>'内部服务器错误']));
     } finally {
         \JSwoole\JSwoole::app()->log->flush();
