@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8af9ccf3ba8a0286149380c275a714ee",
+    "content-hash": "3e0dd3464b923f7924059d788871878e",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -81,16 +81,16 @@
         },
         {
             "name": "hegoku/jswoole-core",
-            "version": "0.0.6",
+            "version": "0.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hegoku/JSwoole-core.git",
-                "reference": "77a63a8d72745b3942201cd30d03a369d39c5f39"
+                "reference": "2c6d1be3894699f86b343f9ce929a637d30583bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/77a63a8d72745b3942201cd30d03a369d39c5f39",
-                "reference": "77a63a8d72745b3942201cd30d03a369d39c5f39",
+                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/2c6d1be3894699f86b343f9ce929a637d30583bc",
+                "reference": "2c6d1be3894699f86b343f9ce929a637d30583bc",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -120,7 +120,7 @@
                 }
             ],
             "description": "A Swoole Framework core",
-            "time": "2019-02-10T09:06:52+00:00"
+            "time": "2019-05-07T07:30:23+00:00"
         },
         {
             "name": "illuminate/container",
