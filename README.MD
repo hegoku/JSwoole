@@ -24,7 +24,9 @@ $ php server.php
 ```php
 return [
     ['get', '/', 'IndexController@index'],
-    ['post', 'login', 'IndexController@login']
+    ['post', 'login', 'IndexController@login'],
+    ['HEAD/get', 'c', 'IndexController@c'],
+    ['*', 'b', 'IndexController@b']
 ];
 ```
 
