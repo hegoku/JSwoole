@@ -2,8 +2,8 @@
     "name": "hegoku/jswoole",
     "description": "",
     "require": {
-        "php": ">=7.1.3",
-        "hegoku/jswoole-core": "0.1.8"
+        "php": ">=7.2",
+        "hegoku/jswoole-core": "0.1.10"
     },
     "autoload": {
         "psr-4": {
