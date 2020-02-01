@@ -9,7 +9,7 @@ class IndexController extends Controller
     public function index()
     {
         $data=$this->request->post();
-        // $a=JSwoole::app()->db('default')->table('user')->select('*')->limit(1)->get();
+        $a=JSwoole::app()->db('default')->table('user')->select('*')->limit(1)->get();
         // $a=JSwoole::app()->db->connection('default')->table('user')->select('*')->limit(1)->get();
         // JSwoole::app()->db->connection('default')->insert("INSERT INTO user (name) VALUES ('fdsfa')");
         // $c=\App\Models\User::take(5)->get();

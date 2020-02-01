@@ -25,7 +25,7 @@ $ php server.php
 return [
     ['get', '/', 'IndexController@index'],
     ['post', 'login', 'IndexController@login'],
-    ['HEAD/get', 'c', 'IndexController@c'],
+    ['HEAD/get', 'c', 'IndexController@c', 'middleware'=>['\App\Middlewares\CustomMiddlewares']],
     ['*', 'b', 'IndexController@b']
 ];
 ```

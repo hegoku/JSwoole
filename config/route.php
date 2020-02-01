@@ -1,4 +1,4 @@
 <?php
 return [
-    ['get', '/', 'IndexController@index']
+    ['get', '/', 'IndexController@index', 'middlewares'=>['\App\Middlewares\ExampleMiddleware', '\App\Middlewares\Example2Middleware']]
 ];
