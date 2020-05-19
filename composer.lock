@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5889122c052cb34bf7ded5db7005aa4f",
+    "content-hash": "2c52abc79f2d32998397505ee13eb5f7",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -91,16 +91,16 @@
         },
         {
             "name": "hegoku/jswoole-core",
-            "version": "0.1.16",
+            "version": "0.1.18",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hegoku/JSwoole-core.git",
-                "reference": "7561714ec9b54ba63c7860378a6cf916e9badb5c"
+                "reference": "51dbdd0eb03aaa7a1d466680309d1fdf264dcb8e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/7561714ec9b54ba63c7860378a6cf916e9badb5c",
-                "reference": "7561714ec9b54ba63c7860378a6cf916e9badb5c",
+                "url": "https://api.github.com/repos/hegoku/JSwoole-core/zipball/51dbdd0eb03aaa7a1d466680309d1fdf264dcb8e",
+                "reference": "51dbdd0eb03aaa7a1d466680309d1fdf264dcb8e",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -134,7 +134,7 @@
                 }
             ],
             "description": "A Swoole Framework core",
-            "time": "2020-05-18T10:13:26+00:00"
+            "time": "2020-05-19T07:13:13+00:00"
         },
         {
             "name": "illuminate/container",
